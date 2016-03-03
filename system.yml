@@ -1,0 +1,22 @@
+mesh:
+  build: mesh/
+  container_name: mesh
+
+concorda:
+  build: ../concorda/
+  container_name: concorda
+
+dashboard:
+  build: ../concorda-dashboard/
+  container_name: dashoard
+  environment:
+    - SERVICE_HOST=0.0.0.0
+    - PORT=3050
+    - LOCAL=true
+
+client:
+  build: ../concorda-client/
+  container_name: client
+  environment:
+    - SERVICE_HOST=0.0.0.0
+    - WEB_PORT=3000
