@@ -7,7 +7,7 @@ Concorda: User management system
 - __Lead Maintainer:__ [Mircea Alexandru][lead]
 - __Sponsor:__ [nearForm][]
 
-A detailed documentation can be found in [Concorda wiki](https://github.com/nearform/concorda/blob/master/doc/Readme.md).
+A detailed documentation can be found in [Concorda wiki](https://github.com/nearform/concorda/blob/master/doc/demo-fuge.md).
 
 
 # Contributing
