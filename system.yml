@@ -15,7 +15,7 @@ dashboard:
     - LOCAL=true
 
 client:
-  build: ../concorda-client/
+  build: ../vidi-dashboard/
   container_name: client
   environment:
     - SERVICE_HOST=0.0.0.0
