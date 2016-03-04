@@ -12,7 +12,7 @@ dashboard:
   environment:
     - SERVICE_HOST=0.0.0.0
     - PORT=3050
-    - LOCAL=true
+    - LOCAL=false
 
 client:
   build: ../vidi-dashboard/
