@@ -20,3 +20,4 @@ client:
   environment:
     - SERVICE_HOST=0.0.0.0
     - WEB_PORT=3000
+    - START=concorda:true
