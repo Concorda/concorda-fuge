@@ -1,21 +1,37 @@
+postgres:
+  image: postgres
+  ports:
+    - 5432:5432
+  environment:
+    - POSTGRES_USER=concorda
+    - POSTGRES_PASSWORD=concorda
+
 mesh:
-  build: mesh/
-  container_name: mesh
+  build: node_modules/seneca-mesh-base/
+  container_name: 'seneca-mesh-base'
 
 concorda:
-  build: ../concorda/
+  build: node_modules/concorda/
   container_name: concorda
+  environment:
+    - SERVICE_HOST=0.0.0.0
+    - PORT=3010
+    - LOCAL=false
+  env_file:
+    - production.env
 
 dashboard:
-  build: ../concorda-dashboard/
-  container_name: dashoard
+  build: node_modules/concorda-dashboard/
+  container_name: concorda-dashboard
   environment:
     - SERVICE_HOST=0.0.0.0
     - PORT=3050
     - LOCAL=false
+  env_file:
+    - production.env
 
 client:
-  build: ../vidi-dashboard/
+  build: node_modules/vidi-dashboard/
   container_name: client
   environment:
     - SERVICE_HOST=0.0.0.0

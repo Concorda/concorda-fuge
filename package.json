@@ -1,0 +1,27 @@
+{
+  "name": "concorda-fuge",
+  "version": "0.0.1",
+  "description": "Microservice-based user management system",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/concorda/concorda-fuge.git"
+  },
+  "keywords": [
+    "concorda",
+    "seneca",
+    "seneca-auth",
+    "seneca-user"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/concorda/concorda-fuge/issues"
+  },
+  "homepage": "https://github.com/concorda/concorda-fuge#readme",
+  "dependencies": {
+    "seneca-mesh-base": "0.0.x",
+    "concorda-dashboard": "github:concorda/concorda-dashboard#dev",
+    "concorda": "github:concorda/concorda",
+    "vidi-dashboard": "vidi-insights/vidi-dashboard"
+  }
+}
