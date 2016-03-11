@@ -23,9 +23,9 @@ dashboard:
     - production.env
 
 client:
-  build: node_modules/vidi-dashboard/
+  build: ../vidi-dashboard/
   container_name: client
   environment:
-    - SERVICE_HOST=0.0.0.0
-    - WEB_PORT=3000
+    - HOST=0.0.0.0
+    - PORT=3000
     - START=concorda:true
