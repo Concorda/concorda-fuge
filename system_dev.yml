@@ -20,7 +20,7 @@ dashboard:
     - PROXY_HOST=0.0.0.0
     - PROXY_PORT=3010
   env_file:
-    - production.env
+    - ../concorda-dashboard/config/development.env
 
 client:
   build: ../vidi-dashboard/
