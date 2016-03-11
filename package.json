@@ -20,8 +20,9 @@
   "homepage": "https://github.com/concorda/concorda-fuge#readme",
   "dependencies": {
     "seneca-mesh-base": "0.0.x",
-    "concorda-dashboard": "github:concorda/concorda-dashboard#dev",
+    "concorda-dashboard": "github:concorda/concorda-dashboard",
     "concorda": "github:concorda/concorda",
+    "concorda-rest": "github:concorda/concorda-rest",
     "vidi-dashboard": "vidi-insights/vidi-dashboard"
   }
 }

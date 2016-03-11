@@ -4,7 +4,7 @@ module.exports = {
   runDocker: true,
 
   // proxy settings - one of docker | process | all
-  proxy: 'process',
+  proxy: 'all',
 
   // if true tail running process to the shell by default
   tail: true,
