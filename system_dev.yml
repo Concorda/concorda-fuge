@@ -5,6 +5,9 @@ postgres:
   environment:
     - POSTGRES_USER=concorda
     - POSTGRES_PASSWORD=concorda
+    - PGDATA=/var/lib/postgresql/data
+  volumes:
+    - /tmp/pgdata:/var/lib/postgresql/data/pgdata
 
 mesh:
   build: node_modules/seneca-mesh-base/
