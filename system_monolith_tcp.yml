@@ -1,0 +1,36 @@
+postgres:
+  image: postgres
+  ports:
+    - 5432:5432
+  environment:
+    - POSTGRES_USER=concorda
+    - POSTGRES_PASSWORD=concorda
+    - PGDATA=/var/lib/postgresql/data
+#  volumes:
+#    - /tmp/pgdata:/var/lib/postgresql/data/pgdata
+
+dashboard:
+  build: ../concorda-dashboard/
+  container_name: concorda-dashboard
+  environment:
+    - SERVICE_HOST=0.0.0.0
+    - PORT=3050
+    - EXTERNAL_API=false
+    - PROXY_HOST=0.0.0.0
+    - PROXY_PORT=3010
+    - USE_MESH=false
+    - USE_TRANSPORT=true
+    - TRANSPORT_TYPE=tcp
+  env_file:
+    - ../concorda-dashboard/config/development.env
+
+client:
+  build: node_modules/concorda-client-demo/
+  container_name: client
+  environment:
+    - HOST=0.0.0.0
+    - PORT=3000
+    - CLIENT_KEY=demo
+    - USE_MESH=false
+    - USE_TRANSPORT=true
+    - TRANSPORT_TYPE=tcp
