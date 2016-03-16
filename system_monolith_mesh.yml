@@ -6,8 +6,8 @@ postgres:
     - POSTGRES_USER=concorda
     - POSTGRES_PASSWORD=concorda
     - PGDATA=/var/lib/postgresql/data
-  volumes:
-    - /tmp/pgdata:/var/lib/postgresql/data/pgdata
+#  volumes:
+#    - /tmp/pgdata:/var/lib/postgresql/data/pgdata
 
 mesh:
   build: node_modules/seneca-mesh-base/
@@ -22,13 +22,19 @@ dashboard:
     - EXTERNAL_API=false
     - PROXY_HOST=0.0.0.0
     - PROXY_PORT=3010
+    - USE_MESH=true
+    - USE_TRANSPORT=false
+    - TRANSPORT_TYPE=tcp
   env_file:
     - ../concorda-dashboard/config/development.env
 
 client:
-  build: ../vidi-dashboard/
+  build: node_modules/concorda-client-demo/
   container_name: client
   environment:
     - HOST=0.0.0.0
     - PORT=3000
-    - START=concorda:true
+    - CLIENT_KEY=demo
+    - USE_MESH=true
+    - USE_TRANSPORT=false
+    - TRANSPORT_TYPE=tcp
