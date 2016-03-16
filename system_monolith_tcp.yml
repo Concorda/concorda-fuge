@@ -1,3 +1,10 @@
+pgdata:
+  image: postgres
+  container_name: pgdata
+  command: /bin/true
+  volumes:
+    - /var/lib/postgresql/data
+
 postgres:
   image: postgres
   ports:
@@ -5,9 +12,8 @@ postgres:
   environment:
     - POSTGRES_USER=concorda
     - POSTGRES_PASSWORD=concorda
-    - PGDATA=/var/lib/postgresql/data
-#  volumes:
-#    - /tmp/pgdata:/var/lib/postgresql/data/pgdata
+  volumes_from:
+    - pgdata
 
 dashboard:
   build: ../concorda-dashboard/
@@ -21,8 +27,11 @@ dashboard:
     - USE_MESH=false
     - USE_TRANSPORT=true
     - TRANSPORT_TYPE=tcp
+    - GOOGLE_PASS=secret
+    - GOOGLE_CLIENT_ID=598178902922-prqmnbuijk68m1mo011mjgeko4mqtd37.apps.googleusercontent.com
+    - GOOGLE_CLIENT_SECRET=gqPUcpnOgBqiKqFVamaSWqIL
   env_file:
-    - ../concorda-dashboard/config/development.env
+    - ../concorda-dashboard/config/production.env
 
 client:
   build: node_modules/concorda-client-demo/

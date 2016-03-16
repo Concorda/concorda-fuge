@@ -1,3 +1,10 @@
+pgdata:
+  image: postgres
+  container_name: pgdata
+  command: /bin/true
+  volumes:
+    - /var/lib/postgresql/data
+
 postgres:
   image: postgres
   ports:
@@ -5,6 +12,8 @@ postgres:
   environment:
     - POSTGRES_USER=concorda
     - POSTGRES_PASSWORD=concorda
+  volumes_from:
+    - pgdata
 
 mesh:
   build: node_modules/seneca-mesh-base/

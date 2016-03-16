@@ -19,20 +19,27 @@ mesh:
   build: node_modules/seneca-mesh-base/
   container_name: 'seneca-mesh-base'
 
+concorda:
+  build: node_modules/concorda/
+  container_name: concorda
+  environment:
+    - SERVICE_HOST=0.0.0.0
+    - PORT=3010
+    - EXTERNAL_CORE=false
+  env_file:
+    - production.env
+
 dashboard:
-  build: ../concorda-dashboard/
+  build: node_modules/concorda-dashboard/
   container_name: concorda-dashboard
   environment:
     - SERVICE_HOST=0.0.0.0
     - PORT=3050
     - EXTERNAL_API=false
-    - PROXY_HOST=0.0.0.0
-    - PROXY_PORT=3010
     - USE_MESH=true
-    - USE_TRANSPORT=false
-    - TRANSPORT_TYPE=tcp
+    - EXTERNAL_CORE=true
   env_file:
-    - ../concorda-dashboard/config/development.env
+    - production.env
 
 client:
   build: node_modules/concorda-client-demo/
@@ -42,5 +49,3 @@ client:
     - PORT=3000
     - CLIENT_KEY=demo
     - USE_MESH=true
-    - USE_TRANSPORT=false
-    - TRANSPORT_TYPE=tcp
