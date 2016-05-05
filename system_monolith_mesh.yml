@@ -1,24 +1,3 @@
-pgdata:
-  image: postgres
-  container_name: pgdata
-  command: /bin/true
-  volumes:
-    - /var/lib/postgresql/data
-
-postgres:
-  image: postgres
-  ports:
-    - 5432:5432
-  environment:
-    - POSTGRES_USER=concorda
-    - POSTGRES_PASSWORD=concorda
-  volumes_from:
-    - pgdata
-
-mesh:
-  build: node_modules/seneca-mesh-base/
-  container_name: 'seneca-mesh-base'
-
 dashboard:
   build: ../concorda-dashboard/
   container_name: concorda-dashboard
@@ -29,18 +8,15 @@ dashboard:
     - PROXY_HOST=0.0.0.0
     - PROXY_PORT=3010
     - USE_MESH=true
-    - USE_TRANSPORT=false
-    - TRANSPORT_TYPE=tcp
-  env_file:
-    - ../concorda-dashboard/config/development.env
+  env_file: ../concorda-dashboard/config/production.env
 
 client:
-  build: node_modules/concorda-client-demo/
+  build: ../concorda-client-demo/
   container_name: client
   environment:
     - HOST=0.0.0.0
     - PORT=3000
     - CLIENT_KEY=demo
-    - USE_MESH=true
-    - USE_TRANSPORT=false
+    - USE_MESH=false
+    - USE_TRANSPORT=true
     - TRANSPORT_TYPE=tcp
