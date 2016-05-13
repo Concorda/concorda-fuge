@@ -15,4 +15,15 @@ module.exports = {
   // exclude these patterns from the monitor
   exclude: /node_modules|\.git|\.log/mgi,
 
+  overrides: {
+    concorda: {
+      run: 'node start.js',
+      build: 'npm install'
+    },
+
+    dashboard: {
+      run: 'node start.js',
+      build: 'npm install'
+    }
+  }
 };

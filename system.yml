@@ -15,34 +15,22 @@ postgres:
   volumes_from:
     - pgdata
 
-mesh:
-  build: node_modules/seneca-mesh-base/
-  container_name: 'seneca-mesh-base'
-
 concorda:
   build: node_modules/concorda/
   container_name: concorda
+  command: node start.js
   environment:
     - SERVICE_HOST=0.0.0.0
     - PORT=3010
     - LOCAL=false
-  env_file:
-    - production.env
+  env_file: ./production.env
 
 dashboard:
   build: node_modules/concorda-dashboard/
+  command: node start.js
   container_name: concorda-dashboard
   environment:
     - SERVICE_HOST=0.0.0.0
     - PORT=3050
     - LOCAL=false
-  env_file:
-    - production.env
-
-client:
-  build: node_modules/vidi-dashboard/
-  container_name: client
-  environment:
-    - SERVICE_HOST=0.0.0.0
-    - WEB_PORT=3000
-    - START=concorda:true
+  env_file: ./production.env
