@@ -1,5 +1,5 @@
 
-PACKAGES=concorda concorda-dashboard
+PACKAGES=concorda-server concorda-dashboard
 
 SERVICES=$(foreach service, $(PACKAGES), services/$(service))
 MODULES=$(foreach module, $(PACKAGES), node_modules/$(module))
