@@ -17,13 +17,13 @@ module.exports = {
 
   overrides: {
     concorda: {
-      run: 'node start.js',
+      run: 'npm start',
       build: 'npm install'
     },
 
     dashboard: {
-      run: 'node start.js',
-      build: 'npm install'
+      run: 'npm start',
+      build: 'npm install; npm run build'
     }
   }
 };

@@ -16,7 +16,7 @@ postgres:
     - pgdata
 
 concorda:
-  build: node_modules/concorda-server/
+  build: ../node_modules/concorda-server/
   container_name: concorda-server
   command: node start.js
   environment:
@@ -28,7 +28,7 @@ concorda:
   env_file: ../production.env
 
 dashboard:
-  build: node_modules/concorda-dashboard/
+  build: ../node_modules/concorda-dashboard/
   command: node start.js
   container_name: concorda-dashboard
   environment:
