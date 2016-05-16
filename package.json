@@ -1,6 +1,6 @@
 {
-  "name": "concorda-fuge",
-  "version": "0.0.1",
+  "name": "concorda-system",
+  "version": "0.0.2",
   "description": "Microservice-based user management system",
   "main": "index.js",
   "repository": {
@@ -15,11 +15,11 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/concorda/concorda-fuge/issues"
+    "url": "https://github.com/concorda/concorda-system/issues"
   },
-  "homepage": "https://github.com/concorda/concorda-fuge#readme",
+  "homepage": "https://github.com/concorda/concorda-system#readme",
   "dependencies": {
-    "concorda": "github:concorda/concorda",
+    "concorda-server": "github:concorda/concorda-server",
     "concorda-dashboard": "github:concorda/concorda-dashboard"
   }
 }
